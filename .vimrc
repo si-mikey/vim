@@ -29,6 +29,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'maralla/completor.vim'
 Plugin 'w0rp/ale'
 Plugin 'heavenshell/vim-jsdoc'
+Plugin 'othree/yajs.vim'
+Plugin 'othree/es.next.syntax.vim'
 
 """""""""""""" PLUGINS """""""""""""""""""""""
 
