@@ -1,5 +1,5 @@
 " not vi compatible
-set nocompatible 
+set nocompatible
 
 filetype off
 
@@ -24,14 +24,15 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'bcicen/vim-vice'
 Plugin 'junegunn/fzf.vim'
 Plugin 'SirVer/UltiSnips'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
 Plugin 'maralla/completor.vim'
 Plugin 'w0rp/ale'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'othree/yajs.vim'
 Plugin 'othree/es.next.syntax.vim'
-
+Plugin 'ternjs/tern_for_vim'
+Plugin 'myint/syntastic-extras'
 """""""""""""" PLUGINS """""""""""""""""""""""
 
 " All of your Plugins must be added before the following line
@@ -144,22 +145,30 @@ filetype plugin indent on
 filetype plugin on
 
 "" Syntastic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-"let g:syntastic_mode_map = { 'mode': 'active' }
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'mode': 'active' }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 "" Syntastic ignore cucumber undefined warnings
 "let g:syntastic_quiet_messages = {
 "  \ "!level":  "warnings",
 "  \ "type":    "syntax",
 "  \ "regex":   'Cucumber:\:\Undefined',
 "  \ "file:p":  ['\.feature'] }
-"
+
+" language syntax checkers
+let g:syntastic_python_checkers = ['pyflakes_with_warnings']
+let g:syntastic_yaml_checkers = ['pyyaml']
+let g:syntastic_json_checkers = ['json_tool']
+let g:syntastic_make_checkers = ['gnumake']
+let g:syntastic_c_checkers = ['check']
+let g:syntastic_cpp_checkers = ['check']
+
 " Ack / Ag search 
 let g:ackprg = 'ag --vimgrep'
 
@@ -176,6 +185,8 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
+let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+
 
 " JSDoc settings
 let g:jsdoc_allow_input_prompt = 1
@@ -183,3 +194,4 @@ let g:jsdoc_input_description = 1
 let g:jsdoc_enable_es6 = 1
 
 
+" 
