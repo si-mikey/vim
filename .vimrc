@@ -33,6 +33,8 @@ Plugin 'othree/yajs.vim'
 Plugin 'othree/es.next.syntax.vim'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'myint/syntastic-extras'
+"Plugin 'davidhalter/jedi-vim'
+Plugin 'python-mode/python-mode'
 """""""""""""" PLUGINS """""""""""""""""""""""
 
 " All of your Plugins must be added before the following line
@@ -152,8 +154,8 @@ set statusline+=%*
 let g:syntastic_mode_map = { 'mode': 'active' }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 1 
+let g:syntastic_check_on_wq = 1
 "" Syntastic ignore cucumber undefined warnings
 "let g:syntastic_quiet_messages = {
 "  \ "!level":  "warnings",
@@ -194,4 +196,5 @@ let g:jsdoc_input_description = 1
 let g:jsdoc_enable_es6 = 1
 
 
-" 
+" Python-mode settings
+"let g:pymode_python = 'python3' 
