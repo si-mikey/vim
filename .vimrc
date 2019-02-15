@@ -36,6 +36,7 @@ Plugin 'myint/syntastic-extras'
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'python-mode/python-mode'
 Plugin 'neoclide/coc.nvim'
+Plugin 'autozimu/LanguageClient-neovim'
 """""""""""""" PLUGINS """""""""""""""""""""""
 
 " All of your Plugins must be added before the following line
@@ -202,3 +203,33 @@ let g:jsdoc_enable_es6 = 1
 "
 " Language servers settings
 set runtimepath+=~/.vim/LanguageClient-neovim
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+" Minimal LSP configuration for JavaScript
+let g:LanguageClient_serverCommands = {}
+if executable('javascript-typescript-stdio')
+  let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+  " Use LanguageServer for omnifunc completion
+  autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
+else
+  echo "javascript-typescript-stdio not installed!\n"
+  :cq
+endif
+
+" <leader>ld to go to definition
+autocmd FileType javascript nnoremap <buffer>
+  \ <leader>ld :call LanguageClient_textDocument_definition()<cr>
+" <leader>lh for type info under cursor
+autocmd FileType javascript nnoremap <buffer>
+  \ <leader>lh :call LanguageClient_textDocument_hover()<cr>
+" <leader>lr to rename variable under cursor
+autocmd FileType javascript nnoremap <buffer>
+  \ <leader>lr :call LanguageClient_textDocument_rename()<cr>
+
+let g:LanguageClient_serverCommands.python = ['pyls']
+
+" Map renaming in python
+autocmd FileType python nnoremap <buffer>
+  \ <leader>lr :call LanguageClient_textDocument_rename()<cr>
+
