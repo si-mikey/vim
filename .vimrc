@@ -35,6 +35,7 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'myint/syntastic-extras'
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'python-mode/python-mode'
+Plugin 'neoclide/coc.nvim'
 """""""""""""" PLUGINS """""""""""""""""""""""
 
 " All of your Plugins must be added before the following line
@@ -198,3 +199,6 @@ let g:jsdoc_enable_es6 = 1
 
 " Python-mode settings
 "let g:pymode_python = 'python3' 
+"
+" Language servers settings
+set runtimepath+=~/.vim/LanguageClient-neovim
