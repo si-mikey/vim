@@ -64,8 +64,7 @@ let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
 
 
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
+" These some good settings
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
@@ -94,7 +93,7 @@ set foldmethod=syntax
 "colorscheme vice
 set rtp+=~/.fzf
 
-" auto detect rare file extensions
+" auto detect js file extensions
 au BufNewFile,BufRead *.js set filetype=javascript
 au BufNewFile,BufRead *.jq set filetype=javascript
 au BufNewFile,BufRead *.jade set filetype=javascript
