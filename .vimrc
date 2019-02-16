@@ -18,7 +18,7 @@ Plugin 'bling/vim-bufferline'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
-Plugin 'Shutnik/jshint2.vim'
+"Plugin 'Shutnik/jshint2.vim'
 Plugin 'jelera/vim-javascript-syntax'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'bcicen/vim-vice'
@@ -105,7 +105,7 @@ au BufNewFile,BufRead *.json set filetype=javascript
 nnoremap Q q
 nnoremap q <Nop>
 
-set runtimepath+=~/.vim/bundle/jshint2.vim
+" set runtimepath+=~/.vim/bundle/jshint2.vim
 au FileType javascript call JavaScriptFold()
 
 " Utilsnips settings
